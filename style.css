@@ -7,10 +7,78 @@ body {
     padding: 32px;
 }
 
+.header {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+h1 {
+    font-size: 50px;
+    margin-top: 0px;
+}
+
+form {
+    display: flex;
+}
+
+.forms {
+    margin-right: 24px;
+}
+
+img {
+    width: auto;
+    height: 148px;
+    border-radius: 4px;
+}
+
+.add-a-book {
+    margin-bottom: 16px;
+    color: rgb(71, 71, 71);
+}
+
+input {
+    width: 150px;
+}
+
+input[type=number] {
+    width: 60px;
+}
+
+input[type=checkbox] {
+    width: 15px;
+}
+
+input[type=submit] {
+    background-color: rgb(255, 138, 71);
+    font-size: 12px;
+    padding: 4px 16px;
+    color: white;
+    border: 0px;
+    border-radius: 4px;
+}
+
 .card-container {
     display: flex;
     flex-wrap: wrap;
     gap: 16px;
+    margin-top: 32px;
+    padding-top: 16px;
+}
+
+.sample {
+    width: 172px;
+    height: 222px;
+    border: 8px dashed rgb(197, 175, 148);
+    color:rgb(197, 175, 148);
+    font-size: 30px;
+    font-weight: bold;
+    padding: 16px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .card {

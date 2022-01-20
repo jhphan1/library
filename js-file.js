@@ -35,6 +35,7 @@ function addBookToLibrary() {
 // Display each book on page
 myLibrary.forEach(book => {
     const cardContainer = document.querySelector(".card-container");
+    const sample = document.querySelector(".sample");
 
     // Create all divs to make card
     const titleDiv = document.createElement("div");
@@ -68,7 +69,7 @@ myLibrary.forEach(book => {
     icon.textContent = "x";
 
     // Append divs together
-    cardContainer.appendChild(card);
+    cardContainer.insertBefore(card, sample);
     card.appendChild(leftContent);
     card.appendChild(rightContent);
     leftContent.appendChild(bookDiv);
