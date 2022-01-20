@@ -34,5 +34,47 @@ function addBookToLibrary() {
 
 // Display each book on page
 myLibrary.forEach(book => {
-    console.log(book.title);
+    const cardContainer = document.querySelector(".card-container");
+
+    // Create all divs to make card
+    const titleDiv = document.createElement("div");
+    const authorDiv = document.createElement("div");
+    const pagesDiv = document.createElement("div");
+
+    const card = document.createElement("div");
+    const leftContent = document.createElement("div");
+    const bookDiv = document.createElement("div");
+    const rightContent = document.createElement("div");
+    const icon = document.createElement("div");
+    const readButton = document.createElement("button");
+
+    // Add class to each div
+    titleDiv.classList.add("title");
+    authorDiv.classList.add("author");
+    pagesDiv.classList.add("pages");
+
+    card.classList.add("card");
+    leftContent.classList.add("left-content");
+    bookDiv.classList.add("book");
+    rightContent.classList.add("right-content");
+    icon.classList.add("icon");
+    readButton.classList.add("read");
+
+    // Add text content to divs
+    titleDiv.textContent = book.title;
+    authorDiv.textContent = book.author;
+    pagesDiv.textContent = book.pages + " pages";
+    readButton.textContent = "Read";
+    icon.textContent = "x";
+
+    // Append divs together
+    cardContainer.appendChild(card);
+    card.appendChild(leftContent);
+    card.appendChild(rightContent);
+    leftContent.appendChild(bookDiv);
+    leftContent.appendChild(readButton);
+    rightContent.appendChild(icon);
+    bookDiv.appendChild(titleDiv);
+    bookDiv.appendChild(authorDiv);
+    bookDiv.appendChild(pagesDiv);
 })
