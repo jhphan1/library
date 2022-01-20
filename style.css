@@ -4,18 +4,26 @@ html {
 
 body {
     font-family: helvetica, sans-serif;
-    padding: 32px;
 }
 
 .header {
     display: flex;
+    padding: 32px;
     justify-content: space-between;
     gap: 24px;
+}
+
+.header:hover {
+    background-color: rgb(245, 234, 219);
 }
 
 h1 {
     font-size: 50px;
     margin-top: 0px;
+}
+
+.form-container {
+    display: flex;
 }
 
 form {
@@ -62,8 +70,11 @@ input[type=submit] {
     display: flex;
     flex-wrap: wrap;
     gap: 16px;
-    margin-top: 32px;
-    padding-top: 16px;
+    padding: 32px;
+}
+
+.card-container:hover {
+    background-color: rgb(245, 234, 219);
 }
 
 .sample {
@@ -119,6 +130,7 @@ input[type=submit] {
 .icon {
     background-color: #eee;
     color: #888;
+    opacity: 0.2;
     border-radius: 50%;
     height: 20px;
     width: 20px;
@@ -129,6 +141,10 @@ input[type=submit] {
     font-size: 16px;
 }
 
+.icon:hover {
+    opacity: 1;
+}
+
 button.read {
     background-color: rgb(255, 138, 71);
     font-size: 16px;
@@ -136,4 +152,18 @@ button.read {
     color: white;
     border: 0px;
     border-radius: 4px;
+}
+
+button.add {
+    background-color: rgb(255, 138, 71);
+    font-size: 12px;
+    padding: 2px 16px;
+    width: 100px;
+    color: white;
+    border: 0px;
+    border-radius: 4px;
+}
+
+button:hover {
+    opacity: 0.75;
 }
