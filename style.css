@@ -167,3 +167,7 @@ button.add {
 button:hover {
     opacity: 0.75;
 }
+
+.not-read {
+    background-color: rgb(180, 226, 179);
+}

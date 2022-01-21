@@ -101,8 +101,11 @@ function displayLibrary() {
         titleDiv.textContent = book.title;
         authorDiv.textContent = book.author;
         pagesDiv.textContent = book.pages + " pages";
-        readButton.textContent = "Read";
+        readButton.textContent = (book.read) ? "Read" : "Not Read";
         icon.textContent = "x";
+
+        // Add eventListener to button
+        readButton.addEventListener("click", (e) => toggleRead(e));
 
         // Append divs together
         cardContainer.insertBefore(card, sample);
@@ -115,4 +118,20 @@ function displayLibrary() {
         bookDiv.appendChild(authorDiv);
         bookDiv.appendChild(pagesDiv);
     })   
+}
+
+
+function toggleRead(e) {
+    // Toggle the text
+    e.target.textContent = (e.target.textContent === "Read") ? "Not Read" : "Read";
+    // Toggle css
+    e.target.parentElement.parentElement.classList.toggle("not-read");
+    // Change it in myLibrary
+    let target = e.target.previousSibling.firstChild.textContent;
+    myLibrary.forEach(book => {
+        if (book.title === target) {
+            book.read = (book.read === true) ? false : true;
+        }
+    })
+
 }
