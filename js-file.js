@@ -1,28 +1,15 @@
-let myLibrary = [
-    {
-        title: "Expecting Better",
-        author: "Emily Oster",
-        pages: 300,
-        read: true
-    },
-    {
-        title: "A Wizard's Guide to Defensive Baking",
-        author: "T. Kingfisher",
-        pages: 350,
-        read: false
-    },
-    {
-        title: "Project: Hail Mary",
-        author: "Andy Weir",
-        pages: 450,
-        read: true
-    }
-];
-
-displayLibrary();
-
 const add = document.querySelector(".add");
 add.addEventListener("click", addBookToLibrary);
+
+let myLibrary = []
+
+// Pre-fill library with books on page load
+const book1 = new Book("Expecting Better", "Emily Oster", 300, true);
+const book2 = new Book("A Wizard's Guide to Defensive Baking", "T. Kingfisher", 350, false);
+const book3 = new Book("Project: Hail Mary", "Andy Weir", 450, true);
+myLibrary.push(book1, book2, book3);
+
+displayLibrary();
 
 
 // Constructor
@@ -31,6 +18,10 @@ function Book(title, author, pages, read) {
     this.author = author;
     this.pages = pages;
     this.read = read;
+}
+
+Book.prototype.toggle = function() {
+    this.read = (this.read === true) ? false : true;
 }
 
 
@@ -50,8 +41,8 @@ function addBookToLibrary() {
     if (pages > 9999 || pages < 1) return alert("Pages must be between 1 and 9999")
 
     // Create new book with user input
-    title = new Book(title, author, pages, read);
-    myLibrary.push(title);
+    aBook = new Book(title, author, pages, read);
+    myLibrary.push(aBook);
 
     displayLibrary();
 
@@ -136,7 +127,7 @@ function toggleRead(e) {
     let target = e.target.previousSibling.firstChild.textContent;
     myLibrary.forEach(book => {
         if (book.title === target) {
-            book.read = (book.read === true) ? false : true;
+            book.toggle();
         }
     })
 
