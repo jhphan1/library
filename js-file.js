@@ -43,14 +43,15 @@ function addBookToLibrary() {
     let pages = form.elements[2].value;
     let read = (document.getElementById("read").checked);
 
-    // Do nothing if there's no user input
+    // Error check
     if (!title) return alert("Please add title");
     if (!author) return alert("Please add author");
     if (!pages) return alert("Please add pages");
+    if (pages > 9999 || pages < 1) return alert("Pages must be between 1 and 9999")
 
     // Create new book with user input
-    aBook = new Book(title, author, pages, read);
-    myLibrary.push(aBook);
+    title = new Book(title, author, pages, read);
+    myLibrary.push(title);
 
     displayLibrary();
 
@@ -72,7 +73,7 @@ function displayLibrary() {
         cardContainer.removeChild(cardContainer.childNodes[0]);
     }
 
-    myLibrary.forEach(book => {
+    myLibrary.forEach((book, index) => {
         // Create all divs to make card
         const titleDiv = document.createElement("div");
         const authorDiv = document.createElement("div");
@@ -96,6 +97,7 @@ function displayLibrary() {
         rightContent.classList.add("right-content");
         icon.classList.add("icon");
         readButton.classList.add("read");
+        if (book.read === false) card.classList.add("not-read");
 
         // Add text content to divs
         titleDiv.textContent = book.title;
@@ -104,8 +106,12 @@ function displayLibrary() {
         readButton.textContent = (book.read) ? "Read" : "Not Read";
         icon.textContent = "x";
 
-        // Add eventListener to button
+        // Add index to icon (to facilitate deleteBook)
+        icon.dataset.index = index;
+
+        // Add eventListener to buttons
         readButton.addEventListener("click", (e) => toggleRead(e));
+        icon.addEventListener("click", (e) => deleteBook(e));
 
         // Append divs together
         cardContainer.insertBefore(card, sample);
@@ -135,3 +141,11 @@ function toggleRead(e) {
     })
 
 }
+
+
+function deleteBook(e) {
+    delete myLibrary[e.target.dataset.index];
+    displayLibrary();
+}
+
+// $$$ TODO: toggleRead should be in book prototype for practice

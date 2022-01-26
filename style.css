@@ -171,3 +171,12 @@ button:hover {
 .not-read {
     background-color: rgb(180, 226, 179);
 }
+
+.title,
+.author {
+    word-break: break-word;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}
