@@ -138,5 +138,3 @@ function deleteBook(e) {
     delete myLibrary[e.target.dataset.index];
     displayLibrary();
 }
-
-// $$$ TODO: toggleRead should be in book prototype for practice
