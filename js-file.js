@@ -1,3 +1,31 @@
+// Constructor
+    // function Book(title, author, pages, read) {
+    //     this.title = title;
+    //     this.author = author;
+    //     this.pages = pages;
+    //     this.read = read;
+    // }
+
+    // Book.prototype.toggle = function() {
+    //     this.read = (this.read === true) ? false : true;
+    // }
+
+
+// Using class instead of constructor
+class Book {
+    constructor(title, author, pages, read) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    }
+
+    toggle() {
+        this.read = (this.read === true) ? false : true;
+    }
+}
+
+
 const add = document.querySelector(".add");
 add.addEventListener("click", addBookToLibrary);
 
@@ -10,19 +38,6 @@ const book3 = new Book("Project: Hail Mary", "Andy Weir", 450, true);
 myLibrary.push(book1, book2, book3);
 
 displayLibrary();
-
-
-// Constructor
-function Book(title, author, pages, read) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-}
-
-Book.prototype.toggle = function() {
-    this.read = (this.read === true) ? false : true;
-}
 
 
 // Add new book based on user input
